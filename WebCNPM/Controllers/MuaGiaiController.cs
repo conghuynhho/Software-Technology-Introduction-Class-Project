@@ -82,7 +82,7 @@ namespace WebCNPM.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mUAGIAI).State = EntityState.Modified;
+                db.Entry(mUAGIAI).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

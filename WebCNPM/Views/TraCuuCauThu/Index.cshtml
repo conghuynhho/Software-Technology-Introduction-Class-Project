@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebCNPM.Models.CAUTHU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách các cầu thủ</h2>
+
+@using (Html.BeginForm("Index","TraCuuCauThu", FormMethod.Get))
+{
+    @Html.TextBox("searchCauThu")
+    <input type="submit" value="Tìm kiếm" />
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Tên đội</th>
+        <th>Loại Cầu thủ</th>
+        <th>Tên Cầu thủ</th>
+        <th>Ngày sinh</th>
+        <th>Quốc tịch</th>
+        <th>Vị trí</th>
+        <th>Hình Ảnh</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOIBONG.TenDoi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOAICAUTHU.LoaiCauThu1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenCauThu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgaySinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuocTich)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GhiChu)
+        </td>
+        <td>
+            <img src="@Html.DisplayFor(modelItem => item.HinhAnh)" class="img"/>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaCauThu }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaCauThu }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaCauThu })
+        </td>
+    </tr>
+}
+
+</table>

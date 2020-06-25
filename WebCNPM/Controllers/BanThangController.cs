@@ -82,7 +82,7 @@ namespace WebCNPM.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bANTHANG).State = EntityState.Modified;
+                db.Entry(bANTHANG).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
