@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebCNPM.Models.DOIBONG>
+
+@{
+    ViewBag.Title = "MyIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/assets/doibong/index-doibong.css")
+}
+
+
+<br />
+<br />
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <h2 class="card-title" style="margin-left:10px;">
+                <strong>Hồ Sơ Đội Bóng</strong>
+            </h2>
+            <button style="right:20px;" class="btn btn-primary position-absolute" onclick="addNewOrder()">Thêm Hồ Sơ Đội Bóng</button>
+        </div>
+    </div>
+
+    @*Receive All Database Data From Controller And Display Those Data In Client Side*@
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="card-body">
+                <table class="table table-striped table-responsive">
+                    <tbody>
+                        <tr>
+                            <td>Mã Đội Bóng : @item.MaDoi </td>
+                            <td class="font-weight-bold">Tên Đội : @item.TenDoi </td>
+                            <td>Mã Sân : @item.SAN.MaSan</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Mã Cầu Thủ</th>
+                                            <th>Tên Cầu Thủ</th>
+                                            <th>Ngày Sinh</th>
+                                            <th>Mã Loại Cầu Thủ</th>
+                                            <th>Quốc Tịch</th>
+                                            <th>Ghi Chú</th>
+                                            <th>Hình Ảnh</th>
+                                        </tr>
+                                        
+                                        @foreach (var cauthu in item.CAUTHUs)
+                                        {
+                                            <tr>
+                                                <td>@cauthu.MaCauThu</td>
+                                                <td>@cauthu.TenCauThu</td>
+                                                <td>@cauthu.NgaySinh</td>
+                                                <td>@cauthu.MaLoaiCauThu</td>
+                                                <td>@cauthu.QuocTich</td>
+                                                <td>@cauthu.GhiChu</td>
+                                                <td>@cauthu.HinhAnh</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="card-body">
+            <h3 style="color:red;">Empty!</h3>
+        </div>
+
+    }
+</div>
+
