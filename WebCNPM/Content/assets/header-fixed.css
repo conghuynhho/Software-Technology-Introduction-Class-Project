@@ -1,0 +1,211 @@
+/* Font */
+
+@font-face {
+	font-family: 'DancingScript';
+	src: url('fonts/DancingScript-VariableFont_wght.ttf');
+}
+
+@font-face {
+	font-family: 'Cormorant';
+	src: url('fonts/CormorantInfant-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Cormorant2';
+	src: url('fonts/CormorantInfant-SemiBold.ttf');
+}
+@font-face{
+	font-family:'OpenSans';
+	src: url('fonts/OpenSans-Regular.ttf');
+}
+
+.header-fixed {
+	background-color:#292c2f;
+	box-shadow:0 1px 1px #ccc;
+	padding: 20px 40px;
+	height: 80px;
+	color: #ffffff;
+	box-sizing: border-box;
+	top:-100px;
+
+	-webkit-transition:top 0.3s;
+	transition:top 0.3s;
+}
+
+.header-fixed .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/*	The header placeholder. It is displayed when the header is fixed to the top of the
+	browser window, in order to prevent the content of the page from jumping up. */
+
+.header-fixed-placeholder{
+	height: 80px;
+	display: none;
+}
+
+/* Logo */
+.header-fixed .header-limiter h1 {
+	float: left;
+	font: normal 28px DancingScript, Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	margin: 0;
+}
+
+.header-fixed .header-limiter h1 span {
+	color: #5383d3;
+}
+
+/* The navigation links */
+
+.header-fixed .header-limiter a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.header-fixed .header-limiter nav {
+	font:18px Cormorant2, Helvetica, sans-serif;
+	/*line-height:5px;*/
+	float: right;
+}
+.header-fixed .header-limiter nav ul {
+	list-style-type: none;
+	margin-top:5px ;
+	padding: 0;
+	/*overflow: hidden;*/
+}
+
+.header-fixed .header-limiter nav ul li{
+	display: inline-block;
+	color: white;
+	opacity: 0.9;
+}
+
+/* Style for the @html.ActionLink= <a>  */
+.header-fixed .header-limiter nav ul li a{
+	padding:10px;
+	transition: ease 0.4s;
+	text-decoration:none;
+}
+
+/* This is the style for the dropdown menu */
+.header-fixed .header-limiter nav ul .my-dropdown {
+	display:inline-block;
+	transition: all 0.4s;
+	margin:0;
+	padding:0;
+	position:relative;
+}
+.header-fixed .header-limiter nav ul .my-dropdown .dropdown-content {
+	display: block;
+	position:absolute;
+	top:32px;
+	height:0;
+	opacity:0;
+	background-color: #f9f9f9;
+	min-width: 140px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	transition:ease 0.4s;
+}
+.header-fixed .header-limiter nav ul .my-dropdown .dropdown-content a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: none;
+  text-align: left;
+}
+/*****************HOVER BEGIN*******************/
+/* Hover style for the dropdown-content */
+.header-fixed .header-limiter nav ul .my-dropdown .dropdown-content a:hover {
+	background-color: #d2d2d2;
+}
+
+/* using height and opacity to have transition effects*/
+.header-fixed .header-limiter nav ul .my-dropdown:hover .dropdown-content {
+	display: block;
+	opacity:1;
+	height:auto;
+}
+/* When hover the <li class="my-dropdown"> , the <a> will display = block > 
+   Need to use " display = none + height=0 + opacity=0 " to have a perfect hovering effects
+   height and opacity can save the transition effects but can't clear the element's space
+   apply a display=none to <a> tag can solve this problem
+*/
+.header-fixed .header-limiter nav ul .my-dropdown:hover .dropdown-content a{
+	display:block;
+}
+/* Fix hover (when hover the dropdown-conntent, the dropdown-btn still being hovered */
+.header-fixed .header-limiter nav ul li:hover a{
+	color:black;
+	background: white;
+}
+
+/* Make the hover styles for the main menu button */
+.header-fixed .header-limiter nav ul li a:hover{
+	opacity:1;
+	color:black;
+	background: #d2d2d2;
+}
+/******************HOVER END*****************/
+
+.header-fixed .header-limiter nav ul li .selected {
+	color: #608bd2;
+	pointer-events: none;
+	opacity: 1;
+}
+
+/* Making the header responsive */
+@media all and (max-width: 1200px) {
+
+	.header-fixed {
+		padding: 20px 0;
+		height: 130px;
+	}
+
+	.header-fixed .header-limiter h1 {
+		float: none;
+		margin: -8px 0 10px;
+		text-align: center;
+		font-size: 24px;
+		line-height: 1;
+	}
+
+	.header-fixed .header-limiter nav {
+		line-height: 1.9;
+		float:none;
+	}
+
+	.header-fixed .header-limiter nav ul li {
+		font-size: 16px;
+	}
+
+	body.fixed .header-fixed {
+		display: none;
+	}
+
+}
+
+/*
+	 We are clearing the body's margin and padding, so that the header fits properly.
+	 We are also adding a height to demonstrate the scrolling behavior. You can remove
+	 these styles.
+ */
+body{
+	margin:0 ;
+	padding:0;
+}
+
+
+
+
+/* Body */
+body .main-content{
+	width: 88%;
+	margin:0 auto;
+	margin-top:20px;
+	font-family: OpenSans;
+	font-size:14px;
+}

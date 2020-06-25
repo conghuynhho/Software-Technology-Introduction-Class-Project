@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebCNPM.Models.MUAGIAI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenMua)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayBatDau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayKetThuc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenMua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayBatDau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayKetThuc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaMua }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaMua }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaMua })
+        </td>
+    </tr>
+}
+
+</table>

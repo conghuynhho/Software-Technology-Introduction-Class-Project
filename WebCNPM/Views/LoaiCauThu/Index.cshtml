@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebCNPM.Models.LOAICAUTHU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiCauThu1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiCauThu1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaLoaiCauThu }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaLoaiCauThu }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaLoaiCauThu })
+        </td>
+    </tr>
+}
+
+</table>

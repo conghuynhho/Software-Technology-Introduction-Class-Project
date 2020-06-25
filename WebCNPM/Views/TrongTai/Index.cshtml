@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebCNPM.Models.TRONGTAI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenTrongTai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuocTich)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenTrongTai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuocTich)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaTrongTai }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaTrongTai }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaTrongTai })
+        </td>
+    </tr>
+}
+
+</table>

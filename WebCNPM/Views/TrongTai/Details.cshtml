@@ -1,0 +1,35 @@
+﻿@model WebCNPM.Models.TRONGTAI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TRONGTAI</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTrongTai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTrongTai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuocTich)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuocTich)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTrongTai }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

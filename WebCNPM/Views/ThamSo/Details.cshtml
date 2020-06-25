@@ -1,0 +1,99 @@
+﻿@model WebCNPM.Models.THAMSO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>THAMSO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TuoiTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuoiTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuoiTD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuoiTD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoCauThuTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoCauThuTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoCauThuTD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoCauThuTD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoCauThuNgoaiTD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoCauThuNgoaiTD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiDiemTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiDiemTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiDiemTD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiDiemTD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiemThang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiemThang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiemHoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiemHoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiemThua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiemThua)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTS }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
