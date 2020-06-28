@@ -1,0 +1,108 @@
+﻿@model WebCNPM.Models.TRAUDAU
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Lịch Thi Đấu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.MUAGIAI.TenMua)*@
+            Tên Mùa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MUAGIAI.TenMua)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.TRONGTAI.TenTrongTai)*@
+            Tên Trọng Tài
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRONGTAI.TenTrongTai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDoi1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDoi1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDoi2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDoi2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Luot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Luot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaSan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaSan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gio)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.SoBanThangDoi1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoBanThangDoi1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoBanThangDoi2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoBanThangDoi2)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

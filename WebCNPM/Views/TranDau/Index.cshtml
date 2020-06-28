@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WebCNPM.Models.TRAUDAU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MUAGIAI.TenMua)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRONGTAI.TenTrongTai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaDoi1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaDoi2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Luot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaSan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoBanThangDoi1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoBanThangDoi2)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MUAGIAI.TenMua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRONGTAI.TenTrongTai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaDoi1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaDoi2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Luot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaSan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoBanThangDoi1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoBanThangDoi2)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaTranDau }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaTranDau }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaTranDau })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,126 @@
+﻿@model WebCNPM.Models.TRAUDAU
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Lịch Thi Đấu</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.MaTranDau, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="col-form-label col-md-2">Mã Trận Đấu</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaTranDau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaTranDau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.MaMua, "MaMua", htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="col-form-label col-md-2">Mã Mùa</label>
+            <div class="col-md-10">
+                @Html.DropDownList("MaMua", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaMua, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.MaDoi1, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="col-form-label col-md-2">Mã Đội 1</label>
+            <div class="col-md-10">
+                @*@Html.DropDownList("MaDoi", null , htmlAttributes: new { @class = "form-control" })*@
+                @Html.EditorFor(model => model.MaDoi1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaDoi1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.MaDoi2, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="col-form-label col-md-2">Mã Đội 2</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaDoi2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaDoi2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Luot, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="col-form-label col-md-2">Lượt Thi Đấu</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Luot, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Luot, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.MaSan, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="col-form-label col-md-2">Mã Sân</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaSan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaSan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label col-md-2">Mã Trọng Tài</label>
+            @*@Html.LabelFor(model => model.MaTrongTai, "MaTrongTai", htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.DropDownList("MaTrongTai", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaTrongTai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Ngay, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="col-form-label col-md-2">Ngày Thi Đấu</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ngay, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ngay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.gio, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="col-form-label col-md-2">Giờ Thi Đấu</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.SoBanThangDoi1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoBanThangDoi1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoBanThangDoi1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoBanThangDoi2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoBanThangDoi2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoBanThangDoi2, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

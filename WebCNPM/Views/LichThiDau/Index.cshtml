@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebCNPM.Models.TRAUDAU>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="card align-items-center">
+    <div class="card-header">
+        <div class="row">
+            <h2 class="card-title" style="margin-left:10px;">
+                <strong>Lịch Thi Đấu</strong>
+            </h2>
+            <p class="position-absolute" style="right:20px; top:25px;">
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+    </div>
+
+    @*Receive All Database Data From Controller And Display Those Data In Client Side*@
+
+
+    <div class="card-body">
+        <table class="table table-striped table-responsive">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td> Mùa Giải :  </td>*@
+                        <td class="font-weight-bold">Mùa Giải :@Html.DisplayFor(modelItem => item.MUAGIAI.TenMua) </td>
+                        @*<td>Mã Sân : </td>*@
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th>Đội 1</th>
+                                        <th>Đội 2</th>
+                                        <th>Lượt</th>
+                                        <th>Mã Sân</th>
+                                        <th>Ngày</th>
+                                        <th>Giờ</th>
+                                        <th>Trọng Tài</th>
+                                        <th></th>
+                                    </tr>
+
+
+
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.MaDoi1)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.MaDoi2)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Luot)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.MaSan)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Ngay)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.gio)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.TRONGTAI.TenTrongTai)</td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.MaTranDau }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.MaTranDau }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.MaTranDau })
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
