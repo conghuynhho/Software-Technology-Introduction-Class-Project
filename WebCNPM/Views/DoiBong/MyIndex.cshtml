@@ -15,7 +15,7 @@
             <h2 class="card-title" style="margin-left:10px;">
                 <strong>Hồ Sơ Đội Bóng</strong>
             </h2>
-            <button style="right:20px;" class="btn btn-primary position-absolute" onclick="addNewOrder()">Thêm Hồ Sơ Đội Bóng</button>
+            <button style="right:20px;" class="btn btn-primary position-absolute" onclick="addNewHoSo()">Thêm Hồ Sơ Đội Bóng</button>
         </div>
     </div>
 
@@ -187,13 +187,13 @@
     </div>
 </div>
 </div>
-<script>$("NewOrderForm").validate();</script>
+
 
 
 @section scripts{
     <script>
         //Show Modal.
-        function addNewOrder() {
+        function addNewHoSo() {
             $("#newModal").modal();
         }
         //Add Multiple Order.
@@ -212,13 +212,19 @@
                 ghichu = $("#ghichu").val(),
                 linkhinhanh = $("#linkhinhanh").val(),
                 detailsTableBody = $("#detailsTable tbody");
-
+            var date = new Date($("#ngaysinh").val());
+            var datenow = new Date();
             //TODO:Change name of the variable productItem HERE
-            var productItem = '<tr><td>' + macauthu + '</td><td>' + tencauthu + '</td><td>' + ngaysinh + '</td><td>'
-                + maloaicauthu + '</td><td>' + quoctich + '</td><td>' + ghichu + '</td><td>' + linkhinhanh
-                + '</td><td><a data-itemId="0" href="#" class="deleteItem">Remove</a></td></tr>';
-            detailsTableBody.append(productItem);
-            clearItem();
+            if (datenow.getFullYear() - date.getFullYear() > 16 && datenow.getFullYear() - date.getFullYear() <40) {
+                var productItem = '<tr><td>' + macauthu + '</td><td>' + tencauthu + '</td><td>' + ngaysinh + '</td><td>'
+                    + maloaicauthu + '</td><td>' + quoctich + '</td><td>' + ghichu + '</td><td>' + linkhinhanh
+                    + '</td><td><a data-itemId="0" href="#" class="deleteItem">Remove</a></td></tr>';
+                detailsTableBody.append(productItem);
+                clearItem();
+            }
+            else {
+                alert("Tuổi cầu thủ phải lớn hơn 16 và nhỏ hơn 40");
+            }
         });
         //After Add A New Order In The List, Clear Clean The Form For Add More Order.
         function clearItem() {
@@ -253,7 +259,7 @@
                 return $.ajax({
                     contentType: 'application/json; charset=utf-8',
                     dataType: 'json',
-                    type: '',
+                    type: 'POST',
                     url: "/DoiBong/SaveHoSo",
                     data: data,
                     success: function (result) {
@@ -303,5 +309,5 @@
         
         
     </script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
+    @*<script src="~/Scripts/jquery.validate.min.js"></script>*@
 }
