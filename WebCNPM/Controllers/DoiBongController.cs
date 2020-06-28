@@ -15,6 +15,38 @@ namespace WebCNPM.Controllers
         MyModels db = new MyModels();
 
         // GET: DoiBong
+        public ActionResult SaveHoSo(string madoi, string tendoi, string masan, CAUTHU[] order)
+        {
+            string result = "Error! Your Request Is Not Complete!";
+            if (madoi != null && tendoi != null && masan != null && order != null)
+            {
+                /*var cutomerId = Guid.NewGuid();*/
+                DOIBONG model = new DOIBONG();
+                model.MaDoi = madoi;
+                model.TenDoi = tendoi;
+                model.MaSan = masan;
+                /*model.OrderDate = DateTime.Now;*/
+                db.DOIBONGs.Add(model);
+
+                foreach (var item in order)
+                {
+                    /*var orderId = Guid.NewGuid();*/
+                    CAUTHU O = new CAUTHU();
+                    O.MaCauThu = item.MaCauThu;
+                    O.MaDoi = madoi;
+                    O.TenCauThu = item.TenCauThu;
+                    O.NgaySinh = item.NgaySinh;
+                    O.MaLoaiCauThu = item.MaLoaiCauThu;
+                    O.QuocTich = item.QuocTich;
+                    O.GhiChu = item.GhiChu;
+                    O.HinhAnh = item.HinhAnh;
+                    db.CAUTHUs.Add(O);
+                }
+                db.SaveChanges();
+                result = "Success! Add Complete!";
+            }
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult MyIndex()
         {

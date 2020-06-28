@@ -46,7 +46,7 @@
                                             <th>Ghi Chú</th>
                                             <th>Hình Ảnh</th>
                                         </tr>
-                                        
+
                                         @foreach (var cauthu in item.CAUTHUs)
                                         {
                                             <tr>
@@ -56,7 +56,7 @@
                                                 <td>@cauthu.MaLoaiCauThu</td>
                                                 <td>@cauthu.QuocTich</td>
                                                 <td>@cauthu.GhiChu</td>
-                                                <td>@cauthu.HinhAnh</td>
+                                                <td><img style="width:400px" src="@cauthu.HinhAnh" alt="Hình Cầu Thủ @cauthu.TenCauThu" /></td>
                                             </tr>
                                         }
                                     </tbody>
@@ -77,3 +77,231 @@
     }
 </div>
 
+
+<div class="modal fade" id="newModal">
+    <div class="modal-dialog modal-xl" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&#xD7;</a>
+                <h4 class="position-absolute" style="left:20px">Thêm Hồ Sơ</h4>
+            </div>
+            <form id="NewOrderForm">
+                <div class="modal-body">
+                    @*Doi Bong Details*@
+                <h6 style="color:black">Thông Tin Đội Bóng</h6>
+                <hr>
+                <div class="form-group col">
+                    <!--<input type="hidden" id="CustomerId">--> <!--HERE-->
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-1 font-weight-bold">Mã Đội Bóng</label>
+                        <div class="col-md-4 col-3">
+                            <input type="text" id="madoi" name="madoi" placeholder="Mã Đội" class="form-control"> <!--HERE-->
+                        </div>
+                        <label class="col-form-label col-lg-1 font-weight-bold">Tên Đội</label>
+                        <div class="col-md-4 col-3">
+                            <input type="text" id="tendoi" name="tendoi" placeholder="Tên Đội" class="form-control"> <!--HERE-->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-1 font-weight-bold">Mã Sân</label>
+                        <div class="col-md-4">
+                            <input type="text" id="masan" name="masan" placeholder="Mã Sân"
+                                   class="form-control">
+                        </div>
+                    </div>
+                </div>
+    
+                    @*CauThu Details*@
+                <h6 style="margin-top:10px;color:black">Thông Tin Cầu Thủ</h6>
+                <hr>
+                <div class="form-group col">
+                    <input type="hidden" id="OrderId">  <!--HERE-->
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2 font-weight-bold">Mã Cầu Thủ</label>
+                        <div class="col-lg-4">
+                            <input type="text" id="macauthu" name="macauthu" placeholder="Mã Cầu Thủ"
+                                   class="form-control">  
+                        </div>
+                        <label class="col-form-label col-lg-2 font-weight-bold">Tên Cầu Thủ</label>
+                        <div class="col-lg-4">
+                            <input type="text" id="tencauthu" name="tencauthu" placeholder="Tên Cầu Thủ"
+                                   class="form-control">   
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2 font-weight-bold">Ngày Sinh</label>
+                        <div class="col-lg-4">
+                            <input type="date" id="ngaysinh" name="ngaysinh" placeholder="Ngày Sinh"
+                                   class="form-control">
+                        </div>
+                        <label class="col-form-label col-lg-2 font-weight-bold">Loại Cầu Thủ</label>
+                        <div class="col-lg-4">
+                            <input type="text" id="maloaicauthu" name="maloaicauthu" placeholder="Mã Loại Cầu Thủ"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2 font-weight-bold">Quốc Tịch</label>
+                        <div class="col-lg-4">
+                            <input type="text" id="quoctich" name="quoctich" placeholder="Quốc Tịch"
+                                   class="form-control">
+                        </div>
+                        <label class="col-form-label col-lg-2 font-weight-bold">Ghi Chú</label>
+                        <div class="col-lg-4">
+                            <input type="text" id="ghichu" name="ghichu" placeholder="Ghi Chú"
+                                   class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2 font-weight-bold">Hình Ảnh</label>
+                        <div class="col-lg-4">
+                            <input type="text" id="linkhinhanh" name="linkhinhanh" placeholder="Link Hình Ảnh"
+                                   class="form-control">  
+                        </div>
+                        <div class="col-lg-2 offset-lg-2">
+                            <a id="addToList" class="btn btn-primary">Thêm</a>   <!--HERE-->
+                        </div>
+                    </div>
+                    <table id="detailsTable" class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:10% ; text-align:left;">Mã Cầu Thủ</th>
+                                <th style="width:20% ; text-align:left;">Tên Cầu Thủ</th>
+                                <th style="width:15% ; text-align:left;">Ngày Sinh</th>
+                                <th style="width:15% ; text-align:left;">Mã Loại Cầu Thủ</th>
+                                <th style="width:10% ; text-align:left;">Quốc Tịch</th>
+                                <th style="width:10% ; text-align:left;">Ghi Chú</th>
+                                <th style="width:20% ; text-align:left;">Link Hình Ảnh</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="saveHoSo" type="submit" class="btn btn-danger">Save HoSo</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script>$("NewOrderForm").validate();</script>
+
+
+@section scripts{
+    <script>
+        //Show Modal.
+        function addNewOrder() {
+            $("#newModal").modal();
+        }
+        //Add Multiple Order.
+        $("#addToList").click(function (e) {
+            e.preventDefault();
+
+            if ($.trim($("#macauthu").val()) == "" || $.trim($("#tencauthu").val()) == "" || $.trim($("#ngaysinh").val()) == "" ||
+                $.trim($("#maloaicauthu").val()) == "" || $.trim($("#quoctich").val()) == "" || $.trim($("#ghichu").val()) == "" ||
+                $.trim($("#linkhinhanh").val()) == "") return;
+
+            var macauthu = $("#macauthu").val(),
+                tencauthu = $("#tencauthu").val(),
+                ngaysinh = $("#ngaysinh").val(),
+                maloaicauthu = $("#maloaicauthu").val(),
+                quoctich = $("#quoctich").val(),
+                ghichu = $("#ghichu").val(),
+                linkhinhanh = $("#linkhinhanh").val(),
+                detailsTableBody = $("#detailsTable tbody");
+
+            //TODO:Change name of the variable productItem HERE
+            var productItem = '<tr><td>' + macauthu + '</td><td>' + tencauthu + '</td><td>' + ngaysinh + '</td><td>'
+                + maloaicauthu + '</td><td>' + quoctich + '</td><td>' + ghichu + '</td><td>' + linkhinhanh
+                + '</td><td><a data-itemId="0" href="#" class="deleteItem">Remove</a></td></tr>';
+            detailsTableBody.append(productItem);
+            clearItem();
+        });
+        //After Add A New Order In The List, Clear Clean The Form For Add More Order.
+        function clearItem() {
+            $("#macauthu").val('');
+            $("#tencauthu").val('');
+            $("#ngaysinh").val('');
+            $("#maloaicauthu").val('');
+            $("#quoctich").val('');
+            $("#ghichu").val('');
+            $("#linkhinhanh").val('');
+        }
+        // After Add A New Order In The List, If You Want, You Can Remove It.
+        $(document).on('click', 'a.deleteItem', function (e) {
+            e.preventDefault();
+            var $self = $(this);
+            if ($(this).attr('data-itemId') == "0") {
+                $(this).parents('tr').css("background-color", "#ff6347").fadeOut(800, function () {
+                    $(this).remove();
+                });
+            }
+        });
+
+
+
+        //After Click Save Button Pass All Data View To Controller For Save Database
+        
+
+        
+
+
+            function saveHoSo(data) {
+                return $.ajax({
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    type: '',
+                    url: "/DoiBong/SaveHoSo",
+                    data: data,
+                    success: function (result) {
+                        alert(result);
+                        location.reload();
+                    },
+                    error: function () {
+                        alert("Error!")
+                    }
+                });
+            }
+            //Collect Multiple Order List For Pass To Controller
+        $("#saveHoSo").click(function (e) {
+            
+                e.preventDefault();
+
+                var orderArr = [];
+                orderArr.length = 0;
+
+                $.each($("#detailsTable tbody tr"), function () {
+                    orderArr.push({
+                        macauthu: $(this).find('td:eq(0)').html(),
+                        tencauthu: $(this).find('td:eq(1)').html(),
+                        ngaysinh: $(this).find('td:eq(2)').html(),
+                        maloaicauthu: $(this).find('td:eq(3)').html(),
+                        quoctich: $(this).find('td:eq(4)').html(),
+                        ghichu: $(this).find('td:eq(5)').html(),
+                        linkhinhanh: $(this).find('td:eq(6)').html(),
+                    });
+                });
+
+
+                var data = JSON.stringify({
+                    madoi: $("#madoi").val(),
+                    tendoi: $("#tendoi").val(),
+                    masan: $("#masan").val(),
+                    order: orderArr
+                });
+
+                $.when(saveHoSo(data)).then(function (response) {
+                    console.log(response);
+                }).fail(function (err) {
+                    console.log(err);
+                });
+            
+            });
+        
+        
+    </script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+}
