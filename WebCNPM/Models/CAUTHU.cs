@@ -39,5 +39,7 @@ namespace WebCNPM.Models
         public virtual DOIBONG DOIBONG { get; set; }
 
         public virtual LOAICAUTHU LOAICAUTHU { get; set; }
+
+        public virtual ICollection<CAUTHU_GHIBAN> CAUTHU_GHIBANs { get; set; }
     }
 }

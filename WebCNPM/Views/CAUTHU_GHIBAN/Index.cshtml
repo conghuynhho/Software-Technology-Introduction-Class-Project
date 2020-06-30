@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebCNPM.Models.CAUTHU_GHIBAN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- THis is CAUTHU_GHIBAN -->
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BANTHANG.BanThang1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAUTHU.DOIBONG.TenDoi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAUTHU.TenCauThu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANDAU.MaMua)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaTranDau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThoiDiem)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BANTHANG.BanThang1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAUTHU.DOIBONG.TenDoi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAUTHU.TenCauThu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRANDAU.MaMua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTranDau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThoiDiem)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaCTGB }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaCTGB }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaCTGB })
+        </td>
+    </tr>
+}
+
+</table>

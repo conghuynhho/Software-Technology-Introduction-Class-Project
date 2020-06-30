@@ -65,6 +65,11 @@ namespace WebCNPM.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<CAUTHU>()
+                .HasMany(e => e.CAUTHU_GHIBANs)
+                .WithRequired(e => e.CAUTHU)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CAUTHU>()
                 .Property(e => e.HinhAnh)
                 .IsUnicode(false);
 
@@ -114,6 +119,10 @@ namespace WebCNPM.Models
                 .WithRequired(e => e.DOIBONG)
                 .WillCascadeOnDelete(false);
 
+           
+
+            
+
             modelBuilder.Entity<LOAICAUTHU>()
                 .Property(e => e.MaLoaiCauThu)
                 .IsUnicode(false);
@@ -137,6 +146,11 @@ namespace WebCNPM.Models
 
             modelBuilder.Entity<SAN>()
                 .HasMany(e => e.DOIBONGs)
+                .WithRequired(e => e.SAN)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<SAN>()
+                .HasMany(e => e.TRAUDAUs)
                 .WithRequired(e => e.SAN)
                 .WillCascadeOnDelete(false);
 
@@ -172,6 +186,12 @@ namespace WebCNPM.Models
                 .Property(e => e.MaTrongTai)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<TRAUDAU>()
+                .HasMany(e => e.CAUTHU_GHIBAN)
+                .WithRequired(e => e.TRANDAU)
+                .WillCascadeOnDelete(false);
+
+
             modelBuilder.Entity<TRONGTAI>()
                 .Property(e => e.MaTrongTai)
                 .IsUnicode(false);
@@ -181,5 +201,7 @@ namespace WebCNPM.Models
                 .WithRequired(e => e.TRONGTAI)
                 .WillCascadeOnDelete(false);
         }
+
+        
     }
 }

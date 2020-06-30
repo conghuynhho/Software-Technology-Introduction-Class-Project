@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WebCNPM.Models.TRAUDAU>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- This is KQTD -->
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <h2 class="card-title" style="margin-left:10px;">
+                <strong>Kết Quả Thi Đấu</strong>
+            </h2>
+            <p class="position-absolute" style="right:20px; top:25px;">
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+    </div>
+
+    @*Receive All Database Data From Controller And Display Those Data In Client Side*@
+
+
+    <div class="card-body">
+        <table class="table table-striped table-responsive">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td> Mùa Giải :@item.MUAGIAI.TenMua </td>
+                    <td class="font-weight-bolder">Đội 1 :@item.MaDoi1 </td>
+                    <td class="font-weight-bolder">Đội 2 :@item.MaDoi2</td>
+                    <td class="font-weight-bolder"> Tỉ Số: @item.SoBanThangDoi1 : @item.SoBanThangDoi2</td>
+                    <td> Sân : @item.SAN.TenSan </td>
+                    <td> Ngày : @item.Ngay.Day/@item.Ngay.Month/@item.Ngay.Year </td>
+                    <td> Giờ : @item.gio </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MaTranDau }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.MaTranDau }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MaTranDau })
+                    </td>
+                </tr>
+                    <tr>
+                        <td colspan="8">
+                            <table class="table table-bordered">
+                                <tbody>
+
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Cầu Thủ</th>
+                                        <th>Đội</th>
+                                        <th>Loại Bàn Thắng</th>
+                                        <th>Thời Điểm</th>
+                                        <th>
+                                            @Html.RouteLink("Create new Bàn Thắng","MyMy", new { action = "Create"})
+                                        </th>
+                                    </tr>
+
+
+                                    @foreach (var x in item.CAUTHU_GHIBAN)
+                                    {
+                                        <tr>
+                                            <td>@x.MaCTGB</td>
+                                            <td>@x.CAUTHU.TenCauThu</td>
+                                            <td>@x.CAUTHU.DOIBONG.TenDoi</td>
+                                            <td>@x.BANTHANG.BanThang1</td>
+                                            <td>@x.ThoiDiem</td>
+                                            <td>
+                                                @Html.RouteLink("Edit", "MyMy", new { action = "Edit", id = x.MaCTGB }) |
+                                                @Html.RouteLink("Details", "MyMy", new { action = "Details", id = x.MaCTGB }) |
+                                                @Html.RouteLink("Delete", "MyMy", new { action = "Delete", id = x.MaCTGB }) |
+                                            </td>
+                                        </tr>
+                                    }
+
+                                    
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

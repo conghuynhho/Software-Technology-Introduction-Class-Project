@@ -18,6 +18,14 @@ namespace WebCNPM
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "MyMy",
+                url: "CAUTHU_GHIBAN/{action}/{id}",
+                defaults: new {controller = "CAUTHU_GHIBAN" , action = "Index" , id = UrlParameter.Optional }
+                );
         }
+
+
     }
 }

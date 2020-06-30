@@ -14,6 +14,7 @@ namespace WebCNPM.Models
         {
             CAUTHUs = new HashSet<CAUTHU>();
             CAUTHU_RASAN = new HashSet<CAUTHU_RASAN>();
+
         }
 
         [Key]
@@ -35,7 +36,12 @@ namespace WebCNPM.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CAUTHU_RASAN> CAUTHU_RASAN { get; set; }
-
+        public HashSet<THAMSO> THAMSOes { get; }
         public virtual SAN SAN { get; set; }
+
+        /*public virtual ICollection<TRAUDAU> TRANDAUs {get; set;}*/
+
+        
+        
     }
 }

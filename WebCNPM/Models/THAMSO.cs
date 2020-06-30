@@ -13,13 +13,13 @@ namespace WebCNPM.Models
         [StringLength(16)]
         public string MaTS { get; set; }
 
-        public int? TuoiTT { get; set; }
+        public int TuoiTT { get; set; }
 
-        public int? TuoiTD { get; set; }
+        public int TuoiTD { get; set; }
 
-        public int? SoCauThuTT { get; set; }
+        public int SoCauThuTT { get; set; }
 
-        public int? SoCauThuTD { get; set; }
+        public int SoCauThuTD { get; set; }
 
         public int? SoCauThuNgoaiTD { get; set; }
 

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebCNPM.Models.CAUTHU_GHIBAN>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- THIS IS WRONG WAY TURN TO KQTD-->
+<!-- This is KetQuaThiDau -->
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <h2 class="card-title" style="margin-left:10px;">
+                <strong>Kết Quả Thi Đấu</strong>
+            </h2>
+            <p class="position-absolute" style="right:20px; top:25px;">
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+    </div>
+
+    @*Receive All Database Data From Controller And Display Those Data In Client Side*@
+
+
+    <div class="card-body">
+        <table class="table table-striped table-responsive">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td> Mùa Giải :@Html.DisplayFor(modelItem => item.TRANDAU.MUAGIAI.TenMua)  </td>
+                    <td class="font-weight-bolder pl-5">Đội 1 :@Html.DisplayFor(modelItem => item.TRANDAU.MaDoi1) </td>
+                    <td class="font-weight-bolder pr-5">Đội 2 :@Html.DisplayFor(modelItem => item.TRANDAU.MaDoi2) </td>
+                    <td class="font-weight-bolder"> Tỉ Số: @Html.DisplayFor(modelItem => item.TRANDAU.SoBanThangDoi1) : @Html.DisplayFor(modelItem => item.TRANDAU.SoBanThangDoi2)</td>
+                    <td> Sân : @Html.DisplayFor(modelItem => item.TRANDAU.SAN.TenSan) </td>
+                    <td> Ngày : @Html.DisplayFor(modelItem => item.TRANDAU.Ngay) </td>
+                    <td> Giờ : @Html.DisplayFor(modelItem => item.TRANDAU.gio) </td>
+                </tr>
+                    <tr>
+                        <td colspan="3">
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Cầu Thủ</th>
+                                        <th>Đội</th>
+                                        <th>Loại Bàn Thắng</th>
+                                        <th>Thời Điểm</th>
+                                        <th></th>
+                                    </tr>
+
+
+
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.MaCTGB)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.CAUTHU.TenCauThu)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.CAUTHU.DOIBONG.TenDoi)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.BANTHANG.BanThang1)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.ThoiDiem)</td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.MaTranDau }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.MaTranDau }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.MaTranDau })
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

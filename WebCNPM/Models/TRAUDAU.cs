@@ -36,7 +36,7 @@ namespace WebCNPM.Models
         public string MaTrongTai { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? Ngay { get; set; }
+        public DateTime Ngay { get; set; }
 
         public TimeSpan? gio { get; set; }
 
@@ -47,5 +47,13 @@ namespace WebCNPM.Models
         public virtual MUAGIAI MUAGIAI { get; set; }
 
         public virtual TRONGTAI TRONGTAI { get; set; }
+
+        public virtual ICollection<CAUTHU_GHIBAN> CAUTHU_GHIBAN { get; set; }
+
+        public virtual SAN SAN { get; set; }
+
+        /*public virtual DOIBONG DOIBONG { get; set; }*/
+
+        
     }
 }

@@ -9,24 +9,28 @@ namespace WebCNPM.Models
     public partial class CAUTHU_GHIBAN
     {
         [Key]
-        [Column(Order = 0)]
         [StringLength(20)]
-        public string MaTranDau { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(20)]
-        public string MaCauThu { get; set; }
-
-        [Key]
-        [Column(Order = 2)]
-        [StringLength(10)]
-        public string ThoiDiem { get; set; }
+        public string MaCTGB { get; set; }
 
         [Required]
         [StringLength(20)]
-        public string MaLoaiBanThang { get; set; }
+        public string MaTranDau { get; set; }
 
+        [Required]
+        [StringLength(20)]
+        public string MaCauThu { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string ThoiDiem { get; set; }
+
+        [StringLength(20)]
+        public string MaLoaiBanThang { get; set; }
+        
         public virtual BANTHANG BANTHANG { get; set; }
+        public virtual TRAUDAU TRANDAU { get; set; }
+
+        public virtual CAUTHU CAUTHU { get; set; }
+
     }
 }
