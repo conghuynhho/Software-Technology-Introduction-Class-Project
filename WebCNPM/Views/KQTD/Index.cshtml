@@ -13,7 +13,8 @@
                 <strong>Kết Quả Thi Đấu</strong>
             </h2>
             <p class="position-absolute" style="right:20px; top:25px;">
-                @Html.ActionLink("Create New", "Create")
+                @*@Html.ActionLink("Create New", "Create")*@
+                @Html.RouteLink("Create New","Default", new { controller = "LichThiDau", action = "Create" })
             </p>
         </div>
     </div>
