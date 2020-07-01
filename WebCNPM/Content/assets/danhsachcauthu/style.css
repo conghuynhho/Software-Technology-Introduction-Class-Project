@@ -1,0 +1,8 @@
+﻿table {
+    counter-reset: my-sec-counter;
+}
+
+.id::before {
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter);
+}

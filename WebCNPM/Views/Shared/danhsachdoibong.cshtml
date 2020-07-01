@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/assets/layout.css")
+    @Styles.Render("~/Content/assets/header-fixed.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>*@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/Content/assets/danhsachcauthu/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="/Content/assets/danhsachcauthu/css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="/Content/assets/danhsachcauthu/css/style.css">
+    <!-- MDBootstrap Datatables  -->
+    <link href="/Content/assets/danhsachcauthu/css/addons/datatables.min.css" rel="stylesheet">
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="/Content/assets/danhsachcauthu/js/addons/datatables.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <header class="header-fixed">
+
+        <div class="header-limiter">
+
+            <h1><a href="#">Quản lí Giải <span>Bóng Đá </span> Quốc Gia</a></h1>
+
+            <nav>
+                <ul>
+                    <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
+                    <li class="my-dropdown">
+                        @Html.ActionLink("Mùa Giải", "", "") <!-- this is <a> tag-->
+                        <div class="dropdown-content">
+                            <a href="#">Bảng Xếp Hạng</a>
+
+                        </div>
+                    </li>
+                    <li class="my-dropdown">
+                        @Html.ActionLink("Đội Bóng", "", "")
+                        <div class="dropdown-content">
+                            <a href="#">Sân</a>
+                            @Html.ActionLink("Hồ sơ Đội bóng", "")
+                        </div>
+                    </li>
+                    <li class="my-dropdown">
+                        @Html.ActionLink("Cầu Thủ", "", "")
+                        <div class="dropdown-content">
+                            <a href="#">Loại Cầu Thủ</a>
+                            <a href="#">Tra Cứu Cầu Thủ</a>
+                        </div>
+                    </li>
+                    <li class="my-dropdown">
+                        @Html.ActionLink("Trận đấu", "", "")
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Trọng tài", "Index", "TrongTai")
+                        </div>
+                    </li>
+                    <li class="my-dropdown">
+                        @Html.ActionLink("Kết Quả", "", "")
+                        <div class="dropdown-content">
+                            <a href="#">Cầu Thủ Ra Sân</a>
+                        </div>
+                    </li>
+                    <li>@Html.ActionLink("Quy Định", "", "")</li>
+                    @*<li>@Html.ActionLink("Liên Hệ", "", "")</li>*@
+                    <li>@Html.ActionLink("Giới Thiệu", "About", "Home")</li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- You need this element to prevent the content of the page from jumping up -->
+    <div class="header-fixed-placeholder"></div>
+
+    <!-- The content of your page would go here. -->
+
+    <div class="main-content">
+        @RenderBody()
+
+
+
+
+        <br />
+        <br />
+        <br />
+        <div class="footer">
+            <p>&copy; @DateTime.Now.Year - Đồ án Công nghệ phần mềm SE104.K21</p>
+        </div>
+    </div>
+
+
+
+
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>*@
+
+    @*<script type="text/javascript">
+
+            $ (function () {
+
+                var showHeaderAt = 150;
+
+                var win = $(window),
+                    body = $('body');
+
+                // Show the fixed header only on larger screen devices
+
+                if (win.width() > 600) {
+
+                    // When we scroll more than 150px down, we set the
+                    // "fixed" class on the body element.
+
+                    win.on('scroll', function (e) {
+
+                        if (win.scrollTop() > showHeaderAt) {
+                            body.addClass('fixed');
+                        }
+                        else {
+                            body.removeClass('fixed');
+                        }
+                    });
+
+                }
+
+            });
+
+        </script>*@
+
+
+    <!-- Demo ads. Please ignore and remove. -->
+    <!-- <script src="http://cdn.tutorialzine.com/misc/enhance/v3.js" async></script> -->
+    @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)*@
+    <!-- jQuery -->
+    <script type="text/javascript" src="/Content/assets/danhsachcauthu/js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/Content/assets/danhsachcauthu/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/Content/assets/danhsachcauthu/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/Content/assets/danhsachcauthu/js/mdb.min.js"></script>
+    <script type="text/javascript" src="/Content/assets/danhsachcauthu/js/addons/datatables.min.js"></script>
+
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+
+</body>
+
+</html>

@@ -15,6 +15,12 @@ namespace WebCNPM.Controllers
         private MyModels db = new MyModels();
 
         // GET: CauThu
+        public ActionResult DanhSachCauThu()
+        {
+            var cAUTHUs = db.CAUTHUs.Include(c => c.DOIBONG).Include(c => c.LOAICAUTHU);
+            return View(cAUTHUs.ToList());
+        }
+
         public ActionResult Index()
         {
             var cAUTHUs = db.CAUTHUs.Include(c => c.DOIBONG).Include(c => c.LOAICAUTHU);

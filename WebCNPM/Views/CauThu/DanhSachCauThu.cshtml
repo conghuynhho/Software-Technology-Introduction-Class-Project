@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebCNPM.Models.CAUTHU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/danhsachdoibong.cshtml";
+}
+
+
+
+<h2>Danh Sách Cầu Thủ</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenCauThu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOIBONG.TenDoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LOAICAUTHU.LoaiCauThu1)
+            </th>
+            <th>Tổng Số Bàn Thắng</th>
+            <th></th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var sobanthang = 0;
+            <tr>
+                <td class="id">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenCauThu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOIBONG.TenDoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOAICAUTHU.LoaiCauThu1)
+                </td>
+                <td class="text-center">
+                    @foreach (var x in item.CAUTHU_GHIBANs)
+                    {
+                        sobanthang = sobanthang + 1;
+                    }
+                    @sobanthang
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.MaCauThu }) *@
+                    @Html.ActionLink("Details", "Details", new { id = item.MaCauThu }, htmlAttributes: new {@class ="btn btn-link text-primary" })
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.MaCauThu })*@
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.NgaySinh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuocTich)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GhiChu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HinhAnh)
+                    </td>*@
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
