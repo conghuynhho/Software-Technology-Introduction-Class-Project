@@ -33,9 +33,14 @@
                             <td>Mã Đội Bóng : @item.MaDoi </td>
                             <td class="font-weight-bold">Tên Đội : @item.TenDoi </td>
                             <td>Mã Sân : @item.SAN.MaSan</td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.MaDoi }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.MaDoi }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.MaDoi })
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="3">
+                            <td colspan="5">
                                 <table class="table table-bordered">
                                     <tbody>
                                         <tr>
@@ -46,6 +51,7 @@
                                             <th>Quốc Tịch</th>
                                             <th>Ghi Chú</th>
                                             <th>Hình Ảnh</th>
+                                            <th></th>
                                         </tr>
 
                                         @foreach (var cauthu in item.CAUTHUs)
@@ -58,6 +64,11 @@
                                                 <td>@cauthu.QuocTich</td>
                                                 <td>@cauthu.GhiChu</td>
                                                 <td><img style="width:400px" src="@cauthu.HinhAnh" alt="Hình Cầu Thủ @cauthu.TenCauThu" /></td>
+                                                <td>
+                                                    @Html.RouteLink("Edit", "CauThu", new { action = "Edit", id = cauthu.MaCauThu }) |
+                                                    @Html.RouteLink("Details", "CauThu", new { action = "Details", id = cauthu.MaCauThu }) |
+                                                    @Html.RouteLink("Delete", "CauThu", new { action = "Delete", id = cauthu.MaCauThu }) |
+                                                </td>
                                             </tr>
                                         }
                                     </tbody>
@@ -218,7 +229,7 @@
             var date = new Date($("#ngaysinh").val());
             var datenow = new Date();
             //TODO:Change name of the variable productItem HERE
-            if (datenow.getFullYear() - date.getFullYear() > 16 && datenow.getFullYear() - date.getFullYear() < 40) {
+            if (datenow.getFullYear() - date.getFullYear() >= 16 && datenow.getFullYear() - date.getFullYear() <= 40) {
                 var productItem = '<tr><td>' + macauthu + '</td><td>' + tencauthu + '</td><td>' + ngaysinh + '</td><td>'
                     + maloaicauthu + '</td><td>' + quoctich + '</td><td>' + ghichu + '</td><td>' + linkhinhanh
                     + '</td><td><a data-itemId="0" href="#" class="deleteItem">Remove</a></td></tr>';
@@ -226,7 +237,7 @@
                 clearItem();
             }
             else {
-                alert("Tuổi cầu thủ phải lớn hơn 16 và nhỏ hơn 40");
+                alert("Tuổi cầu thủ phải đủ 16 và không quá 40");
             }
         });
         //After Add A New Order In The List, Clear Clean The Form For Add More Order.

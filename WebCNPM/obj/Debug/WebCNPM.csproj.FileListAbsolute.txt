@@ -53,7 +53,6 @@ C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\bin\System.Web.WebPages.Razor.xml
 C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\bin\Newtonsoft.Json.xml
 C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\bin\Antlr3.Runtime.pdb
 C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\obj\Debug\WebCNPM.csprojAssemblyReference.cache
 C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\obj\Debug\WebCNPM.csproj.CoreCompileInputs.cache
 C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\obj\Debug\WebCNPM.csproj.CopyComplete
 C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\obj\Debug\WebCNPM.dll

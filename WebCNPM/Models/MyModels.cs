@@ -25,6 +25,8 @@ namespace WebCNPM.Models
         public virtual DbSet<TRAUDAU> TRAUDAUs { get; set; }
         public virtual DbSet<TRONGTAI> TRONGTAIs { get; set; }
 
+        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BANTHANG>()
@@ -119,9 +121,12 @@ namespace WebCNPM.Models
                 .WithRequired(e => e.DOIBONG)
                 .WillCascadeOnDelete(false);
 
-           
+            //Tu them
+            modelBuilder.Entity<DOIBONG>()
+                .HasMany(e => e.BXHs)
+                .WithRequired(e => e.DOIBONG)
+                .WillCascadeOnDelete(false);
 
-            
 
             modelBuilder.Entity<LOAICAUTHU>()
                 .Property(e => e.MaLoaiCauThu)
@@ -139,6 +144,12 @@ namespace WebCNPM.Models
                 .HasMany(e => e.TRAUDAUs)
                 .WithRequired(e => e.MUAGIAI)
                 .WillCascadeOnDelete(false);
+            
+            //Tu them
+            modelBuilder.Entity<MUAGIAI>()
+               .HasMany(e => e.BXHs)
+               .WithRequired(e => e.MUAGIAI)
+               .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SAN>()
                 .Property(e => e.MaSan)
@@ -157,6 +168,12 @@ namespace WebCNPM.Models
             modelBuilder.Entity<THAMSO>()
                 .Property(e => e.MaTS)
                 .IsUnicode(false);
+
+            //Tu them
+            modelBuilder.Entity<THAMSO>()
+                .HasMany(e => e.MUAGIAIs)
+                .WithRequired(e => e.THAMSO)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TRAUDAU>()
                 .Property(e => e.MaTranDau)
@@ -202,6 +219,6 @@ namespace WebCNPM.Models
                 .WillCascadeOnDelete(false);
         }
 
-        
+        public System.Data.Entity.DbSet<WebCNPM.Models.BXH> BXHs { get; set; }
     }
 }

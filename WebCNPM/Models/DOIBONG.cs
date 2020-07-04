@@ -36,12 +36,21 @@ namespace WebCNPM.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CAUTHU_RASAN> CAUTHU_RASAN { get; set; }
-        public HashSet<THAMSO> THAMSOes { get; }
+        
         public virtual SAN SAN { get; set; }
+
+        public virtual ICollection<BXH> BXHs { get; set; }
+
+
+        
+        /*public virtual THAMSO THAMSO { get; set; }*/
+
+
+        /*public virtual ICollection<THAMSO> THAMSO { get; set; }*/
 
         /*public virtual ICollection<TRAUDAU> TRANDAUs {get; set;}*/
 
-        
-        
+
+
     }
 }

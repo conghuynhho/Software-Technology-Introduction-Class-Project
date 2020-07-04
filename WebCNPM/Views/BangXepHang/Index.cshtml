@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebCNPM.Models.MUAGIAI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/danhsachdoibong.cshtml";
+}
+
+
+
+<h2 class="mb-5">Bảng Xếp Hạng</h2>
+
+@foreach (var item in Model)
+{
+    <div style="font-size:20px;">
+        <span class="font-weight-bold">Mã Mùa :@item.MaMua  </span>
+        <span class="font-weight-bold ml-xl-5"> Tên Mùa :@item.TenMua</span>
+    </div>
+    <table  class="table table-striped table-bordered table-sm dtBasicExample" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mã Đội</th>
+                <th>
+                    Tên Đội 
+                </th>
+                <th>
+                    Tổng Hiệu Số 
+                </th>
+                <th>
+                   Điểm
+                </th>
+                <th>Số Bàn Thắng Sân Khách</th>
+                @*<th>Xếp Hạng</th>*@
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in item.BXHs)
+            {
+                
+                <tr>
+                    <td class="id">
+                    </td>
+                    <td>
+                        @x.MaDoi
+                    </td>
+                    <td>
+                        @x.DOIBONG.TenDoi
+                    </td>
+                    <td>
+                        @x.TongHieuSo
+                    </td>
+                    <td>
+                        @{var Diem = (item.THAMSO.DiemThang * x.SoTranThang) + (x.SoTranHoa * item.THAMSO.DiemHoa) + (item.THAMSO.DiemThua * x.SoTranThua);}
+                        @Diem
+                    </td>
+                    <td>@x.BanThangSanKhach</td>
+                    @*<td></td>*@
+
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+
+
+}
+
+

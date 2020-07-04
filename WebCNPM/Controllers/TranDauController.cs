@@ -118,8 +118,8 @@ namespace WebCNPM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            TRAUDAU tRAUDAU = db.TRAUDAUs.Find(id);
-            db.TRAUDAUs.Remove(tRAUDAU);
+            TRAUDAU a = db.TRAUDAUs.Find(id);
+            db.TRAUDAUs.Remove(a);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

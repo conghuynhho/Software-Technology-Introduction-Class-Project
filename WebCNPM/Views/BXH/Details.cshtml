@@ -1,0 +1,67 @@
+﻿@model WebCNPM.Models.BXH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BXH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MUAGIAI.TenMua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MUAGIAI.TenMua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TongHieuSo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongHieuSo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTranThang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTranThang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTranThua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTranThua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTranHoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTranHoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BanThangSanKhach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BanThangSanKhach)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

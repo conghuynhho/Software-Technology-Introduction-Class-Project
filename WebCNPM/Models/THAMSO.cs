@@ -13,13 +13,13 @@ namespace WebCNPM.Models
         [StringLength(16)]
         public string MaTS { get; set; }
 
-        public int TuoiTT { get; set; }
+        public int? TuoiTT { get; set; }
 
-        public int TuoiTD { get; set; }
+        public int? TuoiTD { get; set; }
 
-        public int SoCauThuTT { get; set; }
+        public int? SoCauThuTT { get; set; }
 
-        public int SoCauThuTD { get; set; }
+        public int? SoCauThuTD { get; set; }
 
         public int? SoCauThuNgoaiTD { get; set; }
 
@@ -32,5 +32,12 @@ namespace WebCNPM.Models
         public int? DiemHoa { get; set; }
 
         public int? DiemThua { get; set; }
+
+        public virtual ICollection<MUAGIAI> MUAGIAIs { get; set; }
+
+       /* public virtual ICollection<THAMSO> DOIBONG { get; set; }
+        public THAMSO THAMSOs { get; internal set; }*/
+        /*public THAMSO THAMSOs { get; internal set; }*/
+
     }
 }

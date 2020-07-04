@@ -9,18 +9,17 @@ namespace WebCNPM.Models
     [Table("MUAGIAI")]
     public partial class MUAGIAI
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MUAGIAI()
         {
             TRAUDAUs = new HashSet<TRAUDAU>();
-        }
 
+        }
         [Key]
         [StringLength(20)]
         public string MaMua { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(500)]
         public string TenMua { get; set; }
 
         [Column(TypeName = "date")]
@@ -29,7 +28,16 @@ namespace WebCNPM.Models
         [Column(TypeName = "date")]
         public DateTime? NgayKetThuc { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [StringLength(16)]
+        public string MaTS { get; set; }
+
+        [StringLength(20)]
+        public string MaTTUT { get; set; }
+
         public virtual ICollection<TRAUDAU> TRAUDAUs { get; set; }
+
+        public virtual ICollection<BXH> BXHs { get; set; }
+
+        public virtual THAMSO THAMSO { get; set; }
     }
 }
