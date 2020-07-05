@@ -22,45 +22,51 @@
 
         <div class="header-limiter">
 
-            <h1><a href="#">Quản lí Giải <span>Bóng Đá </span> Quốc Gia</a></h1>
+            <h1><a href="~/Home">Quản lí Giải <span>Bóng Đá </span> Quốc Gia</a></h1>
 
             <nav>
                 <ul>
                     <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
                     <li class="my-dropdown">
-                        @Html.ActionLink("Mùa Giải", "", "") <!-- this is <a> tag-->
+                        @Html.ActionLink("Mùa Giải", "Index", "MuaGiai") <!-- this is <a> tag-->
                         <div class="dropdown-content">
-                            <a href="#">Bảng Xếp Hạng</a>
+                            <a href="~/BangXepHang/Index">Bảng Xếp Hạng</a>
 
                         </div>
                     </li>
                     <li class="my-dropdown">
-                        @Html.ActionLink("Đội Bóng", "", "")
+                        @Html.ActionLink("Đội Bóng", "Index", "DoiBong")
                         <div class="dropdown-content">
-                            <a href="#">Sân</a>
-                            @Html.ActionLink("Hồ sơ Đội bóng", "")
+                            <a href="~/San">Sân</a>
+                            @Html.ActionLink("Hồ sơ Đội bóng", "MyIndex","DoiBong")
                         </div>
                     </li>
                     <li class="my-dropdown">
-                        @Html.ActionLink("Cầu Thủ", "", "")
+                        @Html.ActionLink("Cầu Thủ", "Index", "CauThu")
                         <div class="dropdown-content">
-                            <a href="#">Loại Cầu Thủ</a>
-                            <a href="#">Tra Cứu Cầu Thủ</a>
+                            <a href="~/LoaiCauThu">Loại Cầu Thủ</a>
+                            <a href="~/CauThu/DanhSachCauThu">Tra Cứu Cầu Thủ</a>
                         </div>
                     </li>
                     <li class="my-dropdown">
-                        @Html.ActionLink("Trận đấu", "", "")
+                        @Html.ActionLink("Trận đấu", "Index", "TranDau")
                         <div class="dropdown-content">
+                            <a href="~/LichThiDau">Lịch Thi Đấu</a>
                             @Html.ActionLink("Trọng tài", "Index", "TrongTai")
                         </div>
                     </li>
                     <li class="my-dropdown">
-                        @Html.ActionLink("Kết Quả", "", "")
+                        @Html.ActionLink("Kết Quả", "Index", "KQTD")
                         <div class="dropdown-content">
-                            <a href="#">Cầu Thủ Ra Sân</a>
+                            <a href="~/CauThu_GhiBan">Cầu Thủ Ghi Bàn</a>
                         </div>
                     </li>
-                    <li>@Html.ActionLink("Quy Định", "", "")</li>
+                    <li class="my-dropdown">
+                        @Html.ActionLink("Quy Định", "Index", "ThamSo")
+                        <div class="dropdown-content">
+                            <a href="~/BanThang">Loại Bàn Thắng</a>
+                        </div>
+                    </li>
                     @*<li>@Html.ActionLink("Liên Hệ", "", "")</li>*@
                     <li>@Html.ActionLink("Giới Thiệu", "About", "Home")</li>
 

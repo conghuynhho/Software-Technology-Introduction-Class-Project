@@ -12,13 +12,14 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>MUAGIAI</h4>
+        <h4>Mùa Giải</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.MaMua)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TenMua, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="col-md-2">Tên Mùa</label>
+            @*@Html.LabelFor(model => model.TenMua, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenMua, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TenMua, "", new { @class = "text-danger" })
@@ -26,7 +27,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NgayBatDau, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="col-md-2">Ngày Bắt Đầu</label>
+
+            @*@Html.LabelFor(model => model.NgayBatDau, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NgayBatDau, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NgayBatDau, "", new { @class = "text-danger" })
@@ -34,7 +37,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NgayKetThuc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="col-md-2">Ngày Kết Thúc</label>
+
+            @*@Html.LabelFor(model => model.NgayKetThuc, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NgayKetThuc, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
@@ -42,20 +47,22 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaTS, "MaTS", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="col-md-2">Mã Tham Số</label>
+
+            @*@Html.LabelFor(model => model.MaTS, "MaTS", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.DropDownList("MaTS", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.MaTS, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.MaTTUT, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MaTTUT, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MaTTUT, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

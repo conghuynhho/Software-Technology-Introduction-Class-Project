@@ -13,13 +13,21 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.LoaiCauThu1)
+            Mã Loại Cầu Thủ
+            @*@Html.DisplayNameFor(model => model.MaLoaiCauThu)*@
+        </th>
+        <th>
+            Loại Cầu Thủ
+            @*@Html.DisplayNameFor(model => model.LoaiCauThu1)*@
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaLoaiCauThu)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.LoaiCauThu1)
         </td>

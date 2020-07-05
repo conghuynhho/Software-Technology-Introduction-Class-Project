@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Mùa Giải</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -14,21 +14,25 @@
     <tr>
 
         <th>
-            @Html.DisplayNameFor(model => model.TenMua)
+            Tên Mùa
+            @*@Html.DisplayNameFor(model => model.TenMua)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayBatDau)
+            Ngày Bắt Đầu 
+            @*@Html.DisplayNameFor(model => model.NgayBatDau)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NgayKetThuc)
+            Ngày Kết Thúc
+            @*@Html.DisplayNameFor(model => model.NgayKetThuc)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.THAMSO.MaTS)
+            Mã Tham Số
+            @*@Html.DisplayNameFor(model => model.THAMSO.MaTS)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MaTTUT)
+            @*@Html.DisplayNameFor(model => model.MaTTUT)*@
         </th>
-        <th></th>
+        
     </tr>
 
 @foreach (var item in Model) {
@@ -46,9 +50,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.THAMSO.MaTS)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.MaTTUT)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MaMua }) |
             @Html.ActionLink("Details", "Details", new { id=item.MaMua }) |

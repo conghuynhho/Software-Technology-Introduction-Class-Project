@@ -57,3 +57,4 @@ C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\obj\Debug\WebCNPM.csproj.CoreCompile
 C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\obj\Debug\WebCNPM.csproj.CopyComplete
 C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\obj\Debug\WebCNPM.dll
 C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\obj\Debug\WebCNPM.pdb
+C:\Users\Huynh\source\repos\WebCNPM\WebCNPM\obj\Debug\WebCNPM.csprojAssemblyReference.cache
